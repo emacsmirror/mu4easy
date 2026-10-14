@@ -56,6 +56,9 @@ Let's go over each provider and examine the gotchas.
 :CREATED:  [2021-05-09 Sun 22:42]
 :END:
 
+#+html: <details>
+#+html: <summary>Google mbsync configuration</summary>
+
 #+begin_src conf
 IMAPAccount Gmail
 Host imap.gmail.com
@@ -122,6 +125,8 @@ Channel Gmail-spam
 Channel Gmail-drafts
 #+end_src
 
+#+html: </details>
+
 First is the =PassCmd=. I assume all passwords (and application specific passwords) are in =~/.authinfo.gpg= with the password key-value pair last (see the =NF= variable in =awk= pointing to the last column).
 
 Next, Google has the structure =[Gmail]/...= so we use explicit far/near definitions. We'll drop them in the next providers.
@@ -132,6 +137,10 @@ Finally, unlike other providers, we're not going to sync the Sent folders becaus
 :PROPERTIES:
 :CREATED:  [2021-05-09 Sun 22:46]
 :END:
+
+#+html: <details>
+#+html: <summary>Apple mbsync configuration</summary>
+
 #+begin_src conf
 IMAPAccount Apple
 Host imap.mail.me.com
@@ -173,12 +182,17 @@ Channel Apple-sent
 Channel Apple-all
 #+end_src
 
+#+html: </details>
+
 Here we use the =Patterns= key to quickly select the folders we're interested in. It turns the Sent folders has many conventions; at Apple it's called Sent Messages.
 
 *** GMX
 :PROPERTIES:
 :CREATED:  [2021-05-09 Sun 22:48]
 :END:
+
+#+html: <details>
+#+html: <summary>GMX mbsync configuration</summary>
 
 #+begin_src conf
 IMAPAccount GMX
@@ -208,10 +222,16 @@ Expunge Both
 SyncState *
 #+end_src
 
+#+html: </details>
+
 *** Outlook
 :PROPERTIES:
 :CREATED:  [2024-08-30 Fri 15:43]
 :END:
+
+#+html: <details>
+#+html: <summary>Outlook mbsync configuration</summary>
+
 #+begin_src conf
 IMAPAccount Outlook
 Host outlook.office365.com
@@ -259,10 +279,16 @@ Channel Outlook-all
 Channel Outlook-junk
 Channel Outlook-trash
 #+end_src
+
+#+html: </details>
+
 *** Proton
 :PROPERTIES:
 :CREATED:  [2021-05-09 Sun 22:49]
 :END:
+
+#+html: <details>
+#+html: <summary>Proton mbsync configuration</summary>
 
 #+begin_src conf
 IMAPAccount Proton
@@ -292,6 +318,8 @@ Create Both
 Expunge Both
 SyncState *
 #+end_src
+
+#+html: </details>
 
 In order to us Proton, one needs to install a bridge application. It specifies the IMAP and SMTP ports to use (non-standard).
 
